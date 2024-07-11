@@ -1,0 +1,12 @@
+FROM continuumio/miniconda3
+
+ENV PYTHONUNBUFFERED=1
+
+RUN conda create -n data python==3.9
+
+# install conda packages 
+SHELL ["conda", "run", "-n", "data", "/bin/bash", "-c"]
+RUN conda install -c conda-forge ipykernel
+
+# install pip packages
+RUN pip3 install --upgrade pip
