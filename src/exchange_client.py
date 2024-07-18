@@ -1,6 +1,11 @@
 from typing import Optional, Tuple
+from dataclasses import dataclass
 from abc import ABCMeta, abstractmethod
 
+@dataclass
+class Exchange:
+    
+    
 
 class ExchangeClient(metaclass=ABCMeta):
     def __init__(self, api_key, secret_key):
@@ -53,3 +58,16 @@ class BackTestFiatBase(ExchangeClient):
             "price": price,
         }
         return str(self.order_id_sequence), None
+    
+    def cancel_order(self, symbol: str, order_id: str) -> Optional[str]:
+        self.orders.pop(order_id, None)
+        self.orders = {}
+        return None
+    
+    def _cancel_order_with_id(self, order_id: str) -> Optional[str]:
+        self.orders.pop(order_id, None)
+        return None
+    
+    def order_list(
+        self, symbol: str
+        ) -> Tuple[Optional[List[]]]

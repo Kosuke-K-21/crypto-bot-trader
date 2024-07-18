@@ -1,31 +1,3 @@
-class Stream:
-    def __init__(self, api_key, secret_key):
-        self.client = ExchangeClient(api_key, secret_key)
-
-    def get_market_data(self, start_unix):
-        # ここでAPIを叩いてデータを取得する
-        return data
-
-
-class Status:
-    def __init__(self, exchange_client: ExchangeClient):
-        self.client = exchange_client
-
-    def get(self, symbol):
-        # ここでステータスを取得する
-        return status
-
-
-class Trader:
-    """
-    Generate actions based on metrics and status
-    """
-
-    def cal(self, metrics, status):
-        # ここでアクションを計算する
-        return actions
-
-
 if __name__ == "__main__":
     # 取引所を決定
     exchange_client = ExchangeClient(enum.GMO)
